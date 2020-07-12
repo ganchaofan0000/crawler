@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
-from crawler_test import randomIp
 header={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
                       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36'}
 
@@ -61,7 +60,7 @@ def getimage(list):
             print(str(x)+'.jpg'+'爬取失败！')
 
 if __name__ == '__main__':
-    drive=webdriver.Chrome('../depends/chromedriver.exe')
+    drive=webdriver.Chrome()
     #proxy=randomIp.getIp()
     imagename='美女'
     num=20
