@@ -16,7 +16,7 @@ def getLinks(articleUrl):
     return bsObj.find("div", {"id": "bodyContent"}).findAll("a",
                                                         href=re.compile("^(/wiki/)((?!:).)*$"))
 
-
+# {"id": "bodyContent"}
 links = getLinks("/wiki/Kevin_Bacon")
 
 try:
