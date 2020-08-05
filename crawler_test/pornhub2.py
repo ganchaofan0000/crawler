@@ -15,9 +15,9 @@ def gethtml(url):
 def parsejs(htmlContent):
     # 先爬核心段内容，以便获取videoId
     all = etree.HTML(htmlContent).xpath('//*[@id="player"]')[0]
-    all_text=etree.tostring(all)
+    all_text=etree.tostring(all).decode('utf-8')
     # 爬取videoId
-    videoId = re.findall('data-video-id="(.+?)"',str(all_text,encoding = "utf-8"))[-1]
+    videoId = re.findall('data-video-id="(.+?)"',all_text)[-1]
     # 再爬js内容
     js = etree.HTML(htmlContent).xpath('//*[@id="player"]/script[1]/text()')[0]
     # 执行js
@@ -47,7 +47,7 @@ def downloadvideo(url_list):
 # 主函数
 def main():
     # p站视频链接
-    url='https://cn.pornhub.com/view_video.php?viewkey=ph5de18a48ac2b0'
+    url='https://cn.pornhub.com/view_video.php?viewkey=ph58838af822d2b'
     html_text=gethtml(url)
     url_list=parsejs(html_text)
     downloadvideo(url_list)
